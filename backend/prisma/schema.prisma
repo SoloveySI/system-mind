@@ -15,3 +15,15 @@ model User {
 
   @@map("users")
 }
+
+model Exercise {
+  id          Int      @id @default(autoincrement())
+  title       String   
+  description String   
+  category    String   
+  difficulty  String   
+  answer      String   
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("exercises")
+}
