@@ -4,6 +4,7 @@ import morgan from "morgan";
 import { userRoutes } from "./routes/user.routes.js";
 import { exerciseRoutes } from "./routes/exercise.routes.js";
 import { catalogRoutes } from "./routes/catalog.routes.js";
+import { submissionRoutes } from "./routes/submission.routes.js";
 import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 app.use(userRoutes);
 app.use(exerciseRoutes);
 app.use(catalogRoutes);
+app.use(submissionRoutes);
 
 // Централизованная обработка ошибок
 app.use(errorHandler);
