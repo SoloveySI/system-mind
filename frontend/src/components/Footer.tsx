@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
 export const Footer = () => (
@@ -8,29 +9,18 @@ export const Footer = () => (
           <Logo />
           <p>
             Тренажёр аналитического мышления: короткие практические упражнения
-            на логику, данные и принятие решений.
+            на память, критическое мышление и работу с данными.
           </p>
         </div>
         <div>
           <h4>Платформа</h4>
           <ul>
             <li>
-              <a href="#top">Главная</a>
+              <Link to="/">Главная</Link>
             </li>
             <li>
-              <a href="#how">Как это работает</a>
+              <a href="/#blocks">Блоки упражнений</a>
             </li>
-            <li>
-              <a href="#practicums">Практикумы</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4>Направления</h4>
-          <ul>
-            <li>Логика</li>
-            <li>Данные</li>
-            <li>Решения</li>
           </ul>
         </div>
       </div>

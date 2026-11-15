@@ -687,3 +687,95 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+/* Блоки упражнений (главное меню) */
+.rt-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+.rt-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.15s;
+}
+.rt-block:hover {
+  border-color: var(--accent);
+}
+.rt-block-num {
+  align-self: flex-start;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.rt-block h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+.rt-block p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.rt-task-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+.rt-task-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.rt-task-link:hover {
+  color: var(--accent);
+}
+.rt-lv-easy i {
+  background: var(--easy);
+}
+.rt-lv-medium i {
+  background: var(--mid);
+}
+.rt-lv-hard i {
+  background: var(--hard);
+}
+
+/* Страница упражнения */
+.rt-back {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+.rt-back:hover {
+  color: var(--accent);
+}
+.rt-task h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin: 14px 0;
+}
+.rt-task .rt-lead {
+  margin-bottom: 20px;
+}
+.rt-task-level {
+  margin-bottom: 28px;
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
 export const Header = () => (
@@ -5,9 +6,8 @@ export const Header = () => (
     <div className="rt-wrap">
       <Logo tagline />
       <nav className="rt-nav">
-        <a href="#top">Главная</a>
-        <a href="#how">Как это работает</a>
-        <a href="#practicums">Практикумы</a>
+        <Link to="/">Главная</Link>
+        <a href="/#blocks">Блоки упражнений</a>
       </nav>
     </div>
   </header>
