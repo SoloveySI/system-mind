@@ -37,8 +37,11 @@ export const TaskPage = () => {
       <Header />
       <main className="rt-main rt-section">
         <div className="rt-wrap">
-          <Link className="rt-back" to="/">
-            ← Ко всем блокам
+          <Link
+            className="rt-back"
+            to={task?.categories ? `/blocks/${task.categories.slug}` : "/"}
+          >
+            {task?.categories ? "← К блоку" : "← Ко всем блокам"}
           </Link>
 
           {error && <p className="rt-empty">{error}</p>}

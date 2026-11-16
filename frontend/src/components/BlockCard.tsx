@@ -1,29 +1,32 @@
 import { Link } from "react-router-dom";
 import type { Block } from "../types/catalog";
-import { LEVELS } from "../utils/labels";
+import { plural } from "../utils/plural";
 
 interface BlockCardProps {
   block: Block;
   index: number;
 }
 
-export const BlockCard = ({ block, index }: BlockCardProps) => (
-  <article className="rt-block">
-    <span className="rt-block-num">Блок {index + 1}</span>
-    <h3>{block.title}</h3>
-    {block.description && <p>{block.description}</p>}
-    <ul className="rt-task-list">
-      {block.tasks.map((task) => (
-        <li key={task.id}>
-          <Link className="rt-task-link" to={`/tasks/${task.id}`}>
-            <span>{task.title}</span>
-            <span className={`rt-level rt-lv-${task.difficulty}`}>
-              <i />
-              {LEVELS[task.difficulty ?? ""] ?? ""}
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </article>
-);
+// Плитка блока целиком является ссылкой на страницу со всеми упражнениями блока
+export const BlockCard = ({ block, index }: BlockCardProps) => {
+  const count = block.tasks.length;
+
+  return (
+    <Link
+      className={`rt-block rt-tone-${index % 4}`}
+      to={`/blocks/${block.slug}`}
+    >
+      <span className="rt-block-num">{String(index + 1).padStart(2, "0")}</span>
+      <h3>{block.title}</h3>
+      {block.description && <p>{block.description}</p>}
+      <div className="rt-block-foot">
+        <span>
+          {count} {plural(count, ["упражнение", "упражнения", "упражнений"])}
+        </span>
+        <span className="rt-block-arrow" aria-hidden="true">
+          →
+        </span>
+      </div>
+    </Link>
+  );
+};

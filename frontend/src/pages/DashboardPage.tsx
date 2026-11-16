@@ -2,6 +2,7 @@ import { useBlocks } from "../hooks/useBlocks";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
 import { BlockCard } from "../components/BlockCard";
+import { Reveal } from "../components/Reveal";
 import { Footer } from "../components/Footer";
 
 export const DashboardPage = () => {
@@ -28,7 +29,9 @@ export const DashboardPage = () => {
 
           <div className="rt-blocks-grid">
             {blocks.map((block, i) => (
-              <BlockCard key={block.id} block={block} index={i} />
+              <Reveal key={block.id} delay={(i % 2) * 120}>
+                <BlockCard block={block} index={i} />
+              </Reveal>
             ))}
           </div>
         </div>

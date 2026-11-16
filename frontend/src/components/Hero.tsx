@@ -1,9 +1,8 @@
-import lensImg from "../assets/lens.svg";
-
 export const Hero = () => (
   <section className="rt-hero" id="top">
-    <div className="rt-wrap rt-hero-grid">
-      <div>
+    <div className="rt-wrap">
+      <div className="rt-hero-card">
+        <p className="rt-eyebrow">Онлайн-практикумы</p>
         <h1>
           Тренируйте
           <em>аналитическое мышление</em>
@@ -13,14 +12,9 @@ export const Hero = () => (
           работу с данными и быструю диагностику ситуаций. Выберите блок и
           начните с любого упражнения.
         </p>
-        <div className="rt-cta-row">
-          <a className="rt-cta" href="#blocks">
-            Выбрать упражнение
-          </a>
-        </div>
-      </div>
-      <div className="rt-visual">
-        <img src={lensImg} alt="Лупа выделяет факты среди оценок" />
+        <a className="rt-cta" href="#blocks">
+          Выбрать упражнение
+        </a>
       </div>
     </div>
   </section>

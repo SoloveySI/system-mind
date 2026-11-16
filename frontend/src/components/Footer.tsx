@@ -13,7 +13,7 @@ export const Footer = () => (
           </p>
         </div>
         <div>
-          <h4>Платформа</h4>
+          <h4>Разделы</h4>
           <ul>
             <li>
               <Link to="/">Главная</Link>
