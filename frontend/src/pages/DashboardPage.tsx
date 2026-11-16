@@ -16,9 +16,7 @@ export const DashboardPage = () => {
       <main className="rt-main rt-section">
         <div className="rt-wrap">
           <div className="rt-head" id="blocks">
-            <h2>
-              Блоки упражнений<span>{blocks.length}</span>
-            </h2>
+            <h2>Блоки упражнений </h2>
           </div>
 
           {loading && <p className="rt-empty">Загружаем блоки…</p>}
