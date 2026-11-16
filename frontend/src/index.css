@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Prata&family=Jost:wght@400;500;600&display=swap");
-
-/* Палитра: меняйте цвета здесь */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600&display=swap");
 :root {
   color-scheme: light;
   --bg: #fff4c2; /* фон страницы: сливочно-лимонный */
@@ -550,4 +548,82 @@ input {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ===== Правки оформления ===== */
+:root {
+  --bg: #fffcf0; /* очень светлый кремовый фон страницы */
+  --sky-flat: #cfe2f2; /* чистый голубой для первого экрана */
+}
+
+/* Заголовки: Playfair Display */
+.rt-logo-mark,
+.rt-logo-name,
+.rt-hero h1,
+.rt-head h2,
+.rt-block-num,
+.rt-block h3,
+.rt-block-head h1,
+.rt-task-row h3,
+.rt-task h1,
+.rt-footer h4 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+/* Шапка: размеры крупнее */
+.rt-logo-name {
+  font-size: 1.9rem;
+}
+.rt-logo-tag {
+  font-size: 1rem;
+}
+.rt-nav {
+  font-size: 1.12rem;
+}
+
+/* Первый экран: чистый цвет вместо градиента */
+.rt-hero {
+  background: var(--sky-flat);
+}
+.rt-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.1;
+}
+.rt-lead {
+  font-size: 1.25rem;
+}
+
+/* Заголовок раздела и число блоков */
+.rt-head h2 {
+  font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+}
+.rt-head h2 span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  margin-left: 16px;
+  border-radius: 999px;
+  background: var(--butter);
+  color: var(--royal);
+  font:
+    600 1.1rem "Jost",
+    sans-serif;
+  vertical-align: middle;
+}
+
+/* Плитки блоков */
+.rt-block-num {
+  font-size: 2.8rem;
+}
+.rt-block h3 {
+  font-size: 1.65rem;
+}
+
+/* Подвал: плоский тёмно-синий */
+.rt-footer {
+  background: var(--navy);
 }
