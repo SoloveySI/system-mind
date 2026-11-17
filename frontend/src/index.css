@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600&display=swap");
 
-/* ===== ПАЛИТРА (вариант A: бирюза и мята) =====
-   Хотите другие цвета? Замените весь блок :root на один из вариантов B или C. */
 :root {
   color-scheme: light;
   --bg: #f3f8f6;
@@ -570,4 +568,74 @@ input {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+.rt-hero::before,
+.rt-hero::after {
+  display: none;
+}
+
+/* ===== Логотип: легче и аккуратнее ===== */
+.rt-logo {
+  column-gap: 12px;
+  row-gap: 3px;
+}
+.rt-logo-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.rt-logo-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.rt-logo-tag {
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+/* ===== Плитки блоков: «скотч» сверху ===== */
+.rt-block {
+  position: relative;
+}
+.rt-block::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 96px;
+  height: 28px;
+  background: rgba(31, 122, 109, 0.22);
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  clip-path: polygon(
+    0 0,
+    4% 12%,
+    0 25%,
+    4% 38%,
+    0 50%,
+    4% 62%,
+    0 75%,
+    4% 88%,
+    0 100%,
+    100% 100%,
+    96% 88%,
+    100% 75%,
+    96% 62%,
+    100% 50%,
+    96% 38%,
+    100% 25%,
+    96% 12%,
+    100% 0
+  );
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 1;
+}
+.rt-reveal:nth-child(even) .rt-block::before {
+  transform: translateX(-50%) rotate(2.5deg);
+}
+.rt-reveal:nth-child(3n) .rt-block::before {
+  left: 36%;
 }
