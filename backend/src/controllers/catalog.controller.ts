@@ -18,11 +18,19 @@ export class CatalogController {
         return res.status(400).json({ error: "Некорректный номер упражнения" });
       }
 
-      const task = await CatalogService.getTask(id);
-      if (!task) {
+      const variant =
+        typeof req.query.variant === "string" ? req.query.variant : undefined;
+      const result = await CatalogService.getTask(id, variant);
+
+      if (result.status === "not_found") {
         return res.status(404).json({ error: "Упражнение не найдено" });
       }
-      return res.status(200).json(task);
+      if (result.status === "bad_variant") {
+        return res
+          .status(400)
+          .json({ error: "Неизвестный вариант упражнения" });
+      }
+      return res.status(200).json(result.task);
     } catch (error) {
       next(error);
     }
