@@ -19,7 +19,6 @@ async function main() {
 
   for (const t of TASKS) {
     // В таблице tasks остаются только общие настройки упражнения (шаблон, таймер),
-    // а тексты уходят в отдельную таблицу task_variants: по одной строке на каждый вариант
     const { variants = [], ...base } = t.content as Json;
 
     const data = {
@@ -52,7 +51,6 @@ async function main() {
         },
       });
     }
-    // Удаляем варианты, которых больше нет в файле
     await prisma.task_variants.deleteMany({
       where: { task_id: task.id, code: { notIn: codes } },
     });
