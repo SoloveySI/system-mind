@@ -25,7 +25,7 @@ export const Footer = () => (
         </div>
       </div>
       <div className="rt-copy">
-        <span>© {new Date().getFullYear()} Ratium</span>
+        <span>© {new Date().getFullYear()} Logia</span>
         <span>Тренажёр аналитического мышления</span>
       </div>
     </div>

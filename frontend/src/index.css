@@ -639,3 +639,297 @@ input {
 .rt-reveal:nth-child(3n) .rt-block::before {
   left: 36%;
 }
+
+/* ===== Упражнения ===== */
+.rt-exercise {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 44px);
+  margin-top: 28px;
+}
+.rt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.rt-btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  transform: translateY(-2px);
+}
+.rt-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.rt-btn-ghost {
+  background: transparent;
+  color: var(--accent);
+}
+.rt-btn-ghost:hover:not(:disabled) {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+.rt-hint-text {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Таймер */
+.rt-timer {
+  margin-bottom: 24px;
+}
+.rt-timer-text {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.rt-timer-bar {
+  height: 10px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.rt-timer-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s linear;
+}
+.rt-timer.is-low .rt-timer-bar span {
+  background: var(--hard);
+}
+
+/* Выбор ответа */
+.rt-case {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 20px 22px;
+  font-size: 1.12rem;
+  margin-bottom: 20px;
+}
+.rt-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+.rt-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+}
+.rt-table th,
+.rt-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.rt-table th {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+.rt-table tr:last-child td {
+  border-bottom: 0;
+}
+.rt-question {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.rt-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.rt-option {
+  text-align: left;
+  padding: 16px 20px;
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.rt-option:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.rt-option.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 500;
+}
+
+/* Разметка */
+.rt-sentences {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rt-sentence {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg);
+  font-size: 1.05rem;
+}
+.rt-choice-row {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.rt-choice {
+  padding: 8px 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+  font-weight: 500;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+.rt-choice:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.rt-choice.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Запомни и введи */
+.rt-flash {
+  background: var(--tint-1);
+  border-radius: 24px;
+  padding: clamp(28px, 5vw, 56px);
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.45;
+  margin-bottom: 24px;
+}
+.rt-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.rt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 500;
+}
+.rt-field input {
+  padding: 14px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  font-size: 1.05rem;
+}
+.rt-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Результат */
+.rt-score {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.rt-score-num {
+  font-family: "Playfair Display", serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--hard);
+}
+.rt-score.is-right .rt-score-num {
+  color: var(--easy);
+}
+.rt-score-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.rt-breakdown {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rt-breakdown-group {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rt-group-title {
+  font-weight: 600;
+  color: var(--muted);
+}
+.rt-result-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border-left: 5px solid var(--line);
+  background: var(--bg);
+}
+.rt-result-row.is-right {
+  border-left-color: var(--easy);
+}
+.rt-result-row.is-wrong {
+  border-left-color: var(--hard);
+}
+.rt-explanation {
+  padding: 16px 20px;
+  background: var(--accent-soft);
+  border-radius: 14px;
+  color: var(--accent-dark);
+}
+.rt-actions-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .rt-sentence {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -14,7 +14,7 @@ export function useBlocks() {
         if (!cancelled) setBlocks(data);
       })
       .catch((err) => {
-        console.warn("Ratium: не удалось загрузить блоки:", err);
+        console.warn("Logia: не удалось загрузить блоки:", err);
         if (!cancelled)
           setError(
             "Не удалось загрузить блоки. Проверьте, что сервер запущен.",
