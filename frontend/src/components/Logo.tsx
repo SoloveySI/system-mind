@@ -9,7 +9,9 @@ export const Logo = ({ tagline = false }: LogoProps) => (
     <span className="rt-logo-mark">L</span>
     <span className="rt-logo-name">Logia</span>
     {tagline && (
-      <small className="rt-logo-tag">тренажёр аналитического мышления</small>
+      <small className="rt-logo-tag">
+        тренажёр системного и аналитического мышления
+      </small>
     )}
   </Link>
 );

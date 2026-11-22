@@ -9,8 +9,9 @@ import { ChoiceExercise } from "../components/exercises/ChoiceExercise";
 import { ClassifyExercise } from "../components/exercises/ClassifyExercise";
 import { MemoryExercise } from "../components/exercises/MemoryExercise";
 import { ExerciseResult } from "../components/exercises/ExerciseResult";
+import { ExerciseIntro } from "../components/exercises/ExerciseIntro";
 
-type Phase = "play" | "result";
+type Phase = "intro" | "play" | "result";
 
 export const TaskPage = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ export const TaskPage = () => {
 
   const [task, setTask] = useState<TaskDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [phase, setPhase] = useState<Phase>("play");
+  const [phase, setPhase] = useState<Phase>("intro");
   const [result, setResult] = useState<SubmitResult | null>(null);
   const [userAnswer, setUserAnswer] = useState<unknown>(null);
   const [saving, setSaving] = useState(false);
@@ -35,7 +36,7 @@ export const TaskPage = () => {
     let cancelled = false;
     setTask(null);
     setError(null);
-    setPhase("play");
+    setPhase("intro");
     setResult(null);
 
     (async () => {
@@ -115,16 +116,23 @@ export const TaskPage = () => {
                 <span className="rt-tag">{task.categories.title}</span>
               )}
               <h1>{task.title}</h1>
-              {phase === "play" && (
+              {phase !== "result" && (
                 <p className="rt-lead">{task.description}</p>
               )}
-              {phase === "play" && (
+              {phase !== "result" && (
                 <p className="rt-level rt-task-level">
                   Уровень: {LEVELS[task.difficulty ?? ""] ?? "не указан"}
                 </p>
               )}
 
               <div className="rt-exercise">
+                {phase === "intro" && (
+                  <ExerciseIntro
+                    content={task.content}
+                    onStart={() => setPhase("play")}
+                  />
+                )}
+
                 {phase === "play" && task.content.template === "choice" && (
                   <ChoiceExercise
                     key={`${task.id}-${task.variantId}-${attempt}`}
